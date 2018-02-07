@@ -29,7 +29,8 @@
       <!-- List Name shown in the middle-->
       <span id="listName">{{listName}}</span>
 
-      <button type="button" class="btn btn-secondary" style="float: right;">
+      <button type="button" class="btn btn-secondary" style="float: right;" 
+      onclick="toggleEdit()">
         Edit
       </button>
 
@@ -74,11 +75,27 @@
       </form> 
     </div>
 
-    <!-- -->
-    <hr id="contentHeader">
+    <!-- list items -->
+    <hr id="listContainer">
     <div id="realContent" style="display: none">
-      <h4>egg</h4>
-      <h4>beer</h4>
+      <!-- example item 1-->
+      <div id="item">
+        <h4 style="float: left;">egg</h4>
+        <button id="remove" type="button" class="btn btn-danger" 
+        style="float: right;display: none">
+        Remove
+        </button>
+      </div>
+
+      <!-- example item 2-->
+      <div id="item">
+        <h4 style="float: left;">beer</h4>
+        <button id="remove" type="button" class="btn btn-danger" 
+        style="float: right;display: none">
+        Remove
+        </button>
+      </div>
+
     </div>
     </hr>
 
@@ -101,6 +118,11 @@
         document.newLinkForm.link.value = currentURL;
         //document.getElementById("demo").innerHTML = currentURL;
       }
+      
+      function toggleEdit(){
+        if($("#remove").is(":visible")){$("#remove").hide();}
+        else{$("#remove").show();}
+      }
 
 
       $( document ).ready(function() {
@@ -114,7 +136,7 @@
 
         $("#newLinkForm").submit(function(e) {
           e.preventDefault();
-          alert("The Link is Shown");
+          alert("The Link is Hidden");
           $("#newLinkDisplay").hide()
           //$("#realContent").show()
         });
