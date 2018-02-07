@@ -40,10 +40,11 @@
 
     <!-- function Part -->
     <ul class="nav">
-      <button type="button" class="btn btn-danger btn-lg" style="float: left;" onclick="showNewItemForm()">
+      <button type="button" class="btn btn-danger btn-lg" style="float: left;" 
+      onclick="showNewItemForm()">
         New Item
       </button>
-      <button type="button" class="btn btn-danger btn-lg">
+      <button type="button" class="btn btn-danger btn-lg" onclick="showNewLinkForm()">
         Share
       </button>
       <button type="button" class="btn btn-danger btn-lg" style="float: right;">
@@ -51,20 +52,33 @@
       </button>
     </ul>
 
-    <!-- list part -->
+    <!-- entry part -->
     <div id="newItemDisplay" style="display: none">
       <form id="newItemForm" action="">
         Item Name:<br>
-        <input type="text" name="firstname" value="">
+        <input type="text" value="">
         <br>
         <br>
         <input type="submit" value="Submit" >
       </form> 
     </div>
 
+    <!-- share button link -->
+    <div id="newLinkDisplay" style="display: none">
+        <form name="newLinkForm" id="newLinkForm" action="">
+        Link of this form:<br>
+        <input type="text" name="link" value="">
+        <br>
+        <br>
+        <input type="submit" value="Hide" >
+      </form> 
+    </div>
+
+    <!-- -->
     <hr id="contentHeader">
     <div id="realContent" style="display: none">
       <h4>egg</h4>
+      <h4>beer</h4>
     </div>
     </hr>
 
@@ -81,15 +95,30 @@
         $('#newItemDisplay').show();
       }
 
+      function showNewLinkForm() {
+        var currentURL = document.URL;
+        $('#newLinkDisplay').show();
+        document.newLinkForm.link.value = currentURL;
+        //document.getElementById("demo").innerHTML = currentURL;
+      }
+
 
       $( document ).ready(function() {
         // alert("page is ready");
         $("#newItemForm").submit(function(e) {
           e.preventDefault();
-          alert("we got your form");
+          alert("The item has been added");
           $("#newItemDisplay").hide()
           $("#realContent").show()
         });
+
+        $("#newLinkForm").submit(function(e) {
+          e.preventDefault();
+          alert("The Link is Shown");
+          $("#newLinkDisplay").hide()
+          //$("#realContent").show()
+        });
+
       });
 
 

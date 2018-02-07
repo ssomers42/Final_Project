@@ -1,4 +1,3 @@
-var foo = {"name": "hello"};
 
 exports.viewList = function(req, res) { 
   // controller code goes here 
@@ -8,3 +7,4 @@ exports.viewList = function(req, res) { 
     'listName': name
   });
 };
+
