@@ -30,12 +30,10 @@
 
       <!-- List Name shown in the middle-->
       <span id="listName">{{listName}}</span>
-      <a href='/edit'>
       <button type="button" class="btn btn-secondary" style="float: right;" 
       onclick="toggleEdit()">
         Edit
       </button>
-    </a>
       <a href='/help'>
         <button type="button" class="btn btn-secondary" style="float: right;">
         ?
@@ -52,9 +50,11 @@
       <button type="button" class="btn btn-danger btn-lg" onclick="showNewLinkForm()">
         Share
       </button>
+      <a href="/notes">
       <button type="button" class="btn btn-danger btn-lg" style="float: right;">
         Notes
       </button>
+      </a>
     </ul>
 
     <!-- entry part -->
@@ -83,19 +83,10 @@
     <hr id="listContainer">
     <div id="realContent" style="display: none">
       <!-- example item 1-->
-      <div id="item">
-        <h4 style="float: left;">egg</h4>
+      <div class="item">
+        <h4 style="float: left;">eggs</h4>
         <button id="remove" type="button" class="btn btn-danger" 
-        style="float: right;display: none">
-        Remove
-        </button>
-      </div>
-
-      <!-- example item 2-->
-      <div id="item">
-        <h4 style="float: left;">beer</h4>
-        <button id="remove" type="button" class="btn btn-danger" 
-        style="float: right;display: none">
+        style="float: right;display: none" onclick="hideRealContent()">
         Remove
         </button>
       </div>
@@ -105,13 +96,18 @@
 
     <!-- Footer part -->
     <footer>
-      <button type="button" class="btn btn-secondary">
+      <button type="button" class="btn btn-secondary" onclick="showSuggestedItems()">
         Suggested Items
       </button>
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript">
+      
+      function hideRealContent() {
+        $('#realContent').hide();
+      }
+
       function showNewItemForm() {
         $('#newItemDisplay').show();
       }
@@ -128,6 +124,9 @@
         else{$("#remove").show();}
       }
 
+      function showSuggestedItems(){
+        alert("The milk has gone bad! please buy a new one before due day!");
+      }
 
       $( document ).ready(function() {
         // alert("page is ready");
@@ -142,7 +141,6 @@
           e.preventDefault();
           alert("The Link is Hidden");
           $("#newLinkDisplay").hide()
-          //$("#realContent").show()
         });
       });
 
