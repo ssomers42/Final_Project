@@ -22,21 +22,25 @@
   <body>
 		<!-- Header Part -->
     <div class="jumbotron" id="listTile">
-      <button type="button" class="btn btn-secondary" style="float: left;">
-        <a href="/" style="color: black"> Back</a>
-      </button>
+      <a href="/">
+        <button type="button" class="btn btn-secondary" style="float: left;">
+          Back
+        </button>
+      </a>
 
       <!-- List Name shown in the middle-->
       <span id="listName">{{listName}}</span>
-
+      <a href='/edit'>
       <button type="button" class="btn btn-secondary" style="float: right;" 
       onclick="toggleEdit()">
         Edit
       </button>
-
-      <button type="button" class="btn btn-secondary" style="float: right;">
+    </a>
+      <a href='/help'>
+        <button type="button" class="btn btn-secondary" style="float: right;">
         ?
-      </button>
+        </button>
+      </a>
     </div>
 
     <!-- function Part -->
