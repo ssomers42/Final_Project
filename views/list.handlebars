@@ -63,7 +63,7 @@
     <div id="newItemDisplay" style="display: none">
       <form id="newItemForm" action="">
         Item Name:<br>
-        <input type="text" value="">
+        <input type="text" value="" id="targetInput">
         <br>
         <br>
         <input type="submit" value="Submit" >
@@ -83,21 +83,25 @@
 
     <!-- list items -->
     <hr id="listContainer">
-    <div id="realContent" style="display: none">
       <!-- example item 1-->
-      <div class="item">
-        <h4 style="float: left;">eggs</h4>
+      <div id="itemHeader">
+        <div class="item">
+        <!-- <h4 style="float: left;"></h4> -->
         <button id="remove" type="button" class="btn btn-danger" 
         style="float: right;display: none" onclick="hideRealContent()">
         Remove
         </button>
+        </div>
       </div>
+     
 
-    </div>
     </hr>
 
     <!-- Footer part -->
-    <footer>
+    <footer style="
+            position:absolute;
+            bottom:0%;
+            width:100%;">
       <button type="button" class="btn btn-secondary" onclick="showSuggestedItems()">
         Suggested Items
       </button>
@@ -132,17 +136,28 @@
 
       $( document ).ready(function() {
         // alert("page is ready");
+        var pendingRender = localStorage.getItem("itemDB");
+
+        $("#itemHeader").append("<h4>" + pendingRender + "</h4>");
         $("#newItemForm").submit(function(e) {
-          e.preventDefault();
+          //e.preventDefault();
           alert("The item has been added");
-          $("#newItemDisplay").hide()
-          $("#realContent").show()
+          // $("#newItemDisplay").hide();
+          // $("#realContent").show();
+
+          var dataPending = $("#targetInput").val().trim();
+          
+          localStorage.setItem("itemDB", dataPending);
+          
+
+          
+
         });
 
         $("#newLinkForm").submit(function(e) {
           e.preventDefault();
           alert("The Link is Hidden");
-          $("#newLinkDisplay").hide()
+          $("#newLinkDisplay").hide();
         });
       });
 
