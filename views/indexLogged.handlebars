@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-      <title>When2Buy</title>
+    <title>When2Buy</title>
+
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
+    <link href="/css/homeListsButton.css" rel="stylesheet">
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,42 +21,35 @@
   </head>
   <body>
 
-  	<div class="jumbotron" id="loginTile">
+  	<div class="jumbotron" id="welcomeTile">
   		<!-- login, edit, and ? buttons -->
-       <a href='/edit'>
+      <a href='/edit'>
         <button type="button" class="btn btn-secondary" style="float: right;">
         Edit
         </button>
       </a>
-      <button type="button" class="btn btn-secondary" style="float: right;">
+      <a href='/help'>
+        <button type="button" class="btn btn-secondary" style="float: right;">
         ?
-      </button>
-      <a href = '#' onclick="history.back();">
-        <button type="button" class="btn btn-secondary" style="float: left;">
-        	Back
         </button>
       </a>
-        <h1>Login</h1>
+      <a href="/">
+        <button type="button" class="btn btn-secondary" style="float:  left;">
+      	 Logout
+        </button>
+      </a>
+      <h1 style="text-align: center;">When2Buy</h1>
     </div>
-    <div style="text-align: center">
-      <img id="loginImage" src="/images/login.png" alt="avatar">
-        <div id="loginForm">
-        <form> 
-          Email: <br>
-          <input class="loginBoxes" type="text" name="email" placeholder="user@example.com"> 
-          <br>
-          Password: <br>
-          <input class="loginBoxes" type="text" name="password" placeholder ="********"> 
-          <br>
-          <!-- fake button until auth system works-->
-          <!--input type="submit" value="Submit" color="class="btn"-->
-          <a href="/indexLogged" class="btn btn-default"> Submit </a>
-      </form>
+    <!--home page lists -->
+    <div class="listButton" style="text-align: center;">
+        <a href="/list/Grocery List" class="listButton btn btn-danger"> +Create New </a>
+        <a href="/list/Grocery List" class="listButton btn btn-danger"> Grocery List <br> Due: 2/10/2018 </a>
+        <a href="/list/Grocery List" class="listButton btn btn-danger"> List 1 <br> Due 2/17/2018 </a>
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-  </div>
   </body>
 </html>
