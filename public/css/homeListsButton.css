@@ -1,8 +1,9 @@
- .listButton button{
+ .listButton a{
  	font-size: 25px;
-	width: 40%;
+	/*width: 40%;*/
 	display: block;
 	padding: 0.5em;
-	margin: 0 auto;
+	margin: 30px;
 	margin-bottom: 25px;
+	box-shadow: 0 0 6px 1px darkred;
 }

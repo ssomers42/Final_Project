@@ -1,0 +1,21 @@
+#loginImage {
+	border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+
+h1 {
+	text-align: center;
+	display:block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.loginBoxes {
+	width: 40%;
+	box-shadow:0 0 0 0px black;
+	margin-bottom: 10px;
+	}

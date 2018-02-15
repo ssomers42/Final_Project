@@ -1,4 +1,5 @@
 #listTile{
+    flex:1;
 	padding: 1em;
     clear: left;
     text-align: center;

@@ -66,7 +66,7 @@
         <input type="text" value="" id="targetInput">
         <br>
         <br>
-        <input type="submit" value="Submit" >
+        <input type="submit" value="Submit" class="btn" >
       </form> 
     </div>
 
@@ -133,22 +133,28 @@
       function showSuggestedItems(){
         alert("The milk has gone bad! please buy a new one before due day!");
       }
-
       $( document ).ready(function() {
         // alert("page is ready");
+        localStorage.clear();
         var pendingRender = localStorage.getItem("itemDB");
-
-        $("#itemHeader").append("<h4>" + pendingRender + "</h4>");
+        var dataPending = new Array();
         $("#newItemForm").submit(function(e) {
-          //e.preventDefault();
+          e.preventDefault();
           alert("The item has been added");
           // $("#newItemDisplay").hide();
           // $("#realContent").show();
+          if (dataPending = []){
+            dataPending = $("#targetInput").val().trim();
+            localStorage.setItem("itemDB", dataPending);
+          }
+          else {
+            dataPending=localStorage.getItem("itemDB");
+            dataPending.push($("#targetInput").val().trim());
+            localStorage.setItem("itemDB", [JSON.stringify(dataPending)]);
 
-          var dataPending = $("#targetInput").val().trim();
-          
-          localStorage.setItem("itemDB", dataPending);
-          
+          }
+          pendingRender=localStorage.getItem("itemDB");
+          $("#itemHeader").append("<h4>" + pendingRender + "</h4>");
 
           
 
