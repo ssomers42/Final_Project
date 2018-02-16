@@ -46,7 +46,7 @@
     <!-- function Part -->
     <ul class="nav">
       <button type="button" class="btn btn-danger btn-lg" style="float: left;" 
-      onclick="showNewItemForm()">
+      onclick="toggleNewItemForm()">
         New Item
       </button>
       <button type="button" class="btn btn-danger btn-lg" onclick="showNewLinkForm()">
@@ -66,7 +66,7 @@
         <input type="text" value="" id="targetInput">
         <br>
         <br>
-        <input type="submit" value="Submit" class="btn" >
+        <input type="submit" value="Submit" class="btn btn-danger">
       </form> 
     </div>
 
@@ -77,7 +77,7 @@
         <input type="text" name="link" value="">
         <br>
         <br>
-        <input type="submit" value="Hide" >
+        <input type="submit" value="Hide" class="btn btn-danger">
       </form> 
     </div>
 
@@ -93,7 +93,6 @@
         </button>
         </div>
       </div>
-     
 
     </hr>
 
@@ -102,10 +101,27 @@
             position:absolute;
             bottom:0%;
             width:100%;">
-      <button type="button" class="btn btn-secondary" onclick="showSuggestedItems()">
+      <button type="button" class="btn btn-secondary" onclick="toggleSuggestedItems()">
         Suggested Items
       </button>
+
+
+      <hr id="suggestedContainer" style="display: none">
+      <div class="suggestedItems" style="display: none">
+         
+         <h4 style="float: left"> Milk </h4>
+
+         <button id="remove" type="button" class="btn btn-danger" 
+        style="float: right;display: none" onclick="hideRealContent()">
+        Remove
+        </button>
+        
+      </div>
+    </hr>
+
     </footer>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript">
@@ -114,8 +130,10 @@
         $('#realContent').hide();
       }
 
-      function showNewItemForm() {
-        $('#newItemDisplay').show();
+      function toggleNewItemForm() {
+        if($("#newItemDisplay").is(":visible")){$("#newItemDisplay").hide();}
+        else{$('#newItemDisplay').show();}
+        
       }
 
       function showNewLinkForm() {
@@ -130,9 +148,21 @@
         else{$("#remove").show();}
       }
 
-      function showSuggestedItems(){
+      function toggleSuggestedItems(){
         alert("The milk has gone bad! please buy a new one before due day!");
+        if($("#suggestedContainer").is(":visible"))
+          {
+            $("#suggestedContainer").hide();
+            $(".suggestedItems").hide();
+          }
+        else
+          {
+            $("#suggestedContainer").show();
+            $(".suggestedItems").show();
+          }
+
       }
+
       $( document ).ready(function() {
         // alert("page is ready");
         localStorage.clear();
