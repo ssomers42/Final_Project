@@ -32,10 +32,7 @@
 
       <!-- List Name shown in the middle-->
       <span id="listName">{{listName}}</span>
-      <button type="button" class="btn btn-secondary" style="float: right;" 
-      onclick="toggleEdit()">
-        Edit
-      </button>
+
       <a href='/help'>
         <button type="button" class="btn btn-secondary" style="float: right;">
         ?
@@ -49,14 +46,15 @@
       onclick="toggleNewItemForm()">
         New Item
       </button>
-      <button type="button" class="btn btn-danger btn-lg" onclick="showNewLinkForm()">
+      <button type="button" class="btn btn-danger btn-lg" onclick="toggleNewLinkForm()">
         Share
       </button>
-      <a href="/notes">
-      <button type="button" class="btn btn-danger btn-lg" style="float: right;">
-        Notes
+      
+      <button type="button" class="btn btn-danger btn-lg" style="float: right;" 
+      onclick="toggleEdit()">
+        Settings
       </button>
-      </a>
+      
     </ul>
 
     <!-- entry part -->
@@ -74,10 +72,10 @@
     <div id="newLinkDisplay" style="display: none">
         <form name="newLinkForm" id="newLinkForm" action="">
         Link of this form:<br>
-        <input type="text" name="link" value="">
+        <input type="text" id="link" value="">
         <br>
         <br>
-        <input type="submit" value="Hide" class="btn btn-danger">
+        <input type="submit" value="Copy to ClipBoard" class="btn btn-danger">
       </form> 
     </div>
 
@@ -88,7 +86,7 @@
         <div class="item">
         <!-- <h4 style="float: left;"></h4> -->
         <button id="remove" type="button" class="btn btn-danger" 
-        style="float: right;display: none" onclick="hideRealContent()">
+        style="float: right;display: none" onclick="hideItemHeader()">
         Remove
         </button>
         </div>
@@ -126,8 +124,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript">
       
-      function hideRealContent() {
-        $('#realContent').hide();
+      function hideItemHeader() {
+        $('#itemHeader').hide();
       }
 
       function toggleNewItemForm() {
@@ -136,9 +134,18 @@
         
       }
 
-      function showNewLinkForm() {
+      function toggleNewLinkForm() {
         var currentURL = document.URL;
-        $('#newLinkDisplay').show();
+        
+
+        if($('#newLinkDisplay').is(":visible"))
+          {
+            $('#newLinkDisplay').hide();
+          }
+        else
+          {
+            $('#newLinkDisplay').show();
+          }
         document.newLinkForm.link.value = currentURL;
         //document.getElementById("demo").innerHTML = currentURL;
       }
@@ -192,8 +199,18 @@
 
         $("#newLinkForm").submit(function(e) {
           e.preventDefault();
-          alert("The Link is Hidden");
-          $("#newLinkDisplay").hide();
+          alert("The Link is copied!");
+            /* Get the text field */
+          var copyText = document.getElementById("link");
+
+          /* Select the text field */
+          copyText.select();
+
+          /* Copy the text inside the text field */
+          document.execCommand("Copy");
+
+          /* Alert the copied text */
+          //alert("Copied the text: " + copyText.value);
         });
       });
 
