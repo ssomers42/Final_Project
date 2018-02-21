@@ -59,11 +59,16 @@
       </p>
     </div>
     <!--home page lists -->
-    <div class="listButton" style="text-align: center;">
+    <!--div class="listButton" style="text-align: center;">
         <a href="/list/New List" class="listButton btn btn-danger"> +Create New </a>
         <a href="/list/Grocery List" class="listButton btn btn-danger"> Grocery List <br> Due: 2/10/2018 </a>
+    </div-->
+    <div class="listButton" style="text-align: center;">
+        <a href="/list/New List" class="listButton btn btn-danger" id = ""> +Create New </a>
+        {{#each names}}
+        <a href="/list/{{this}}" class="listButton btn btn-danger"> {{listName}} <br> Due: {{dueDate}} </a>
+        {{/each}}
     </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
