@@ -18,16 +18,23 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    body  {
+        background-image: url("/images/backgroundBlack.jpg");
+        background-color: #cccccc;
+    }
+
+    .jumbotron{
+      background-image: url("/images/backgroundBlack.jpg");
+        background-color: #cccccc;
+    }
+    </style>
+
   </head>
   <body>
 
   	<div class="jumbotron" id="welcomeTile">
   		<!-- login, edit, and ? buttons -->
-      <a href='/edit'>
-        <button type="button" class="btn btn-secondary" style="float: right;">
-        Edit
-        </button>
-      </a>
       <a href='/help'>
         <button type="button" class="btn btn-secondary" style="float: right;">
         ?
@@ -38,14 +45,19 @@
       	 Login
         </button>
       </a>
-      <h1 style="text-align: center;">When2Buy</h1>
+      <h1 style="text-align: center; color: white; clear: left;">When2Buy</h1>
     </div>
     <!--home page lists -->
     <div class="listButton" style="text-align: center;">
-        <a href="/list/New List" class="listButton btn btn-danger"> +Create New </a>
+        <a href="#" class="listButton btn btn-danger" onclick="showLogin()"> +Create New </a>
         <br>
     </div>
 
+    <script type="text/javascript">
+    function showLogin(){
+      alert("Please login to create new List!");
+    }
+    </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

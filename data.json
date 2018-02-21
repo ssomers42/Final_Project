@@ -1,11 +1,15 @@
 {
 	"item": [
 		{
-			"name": "butter"
+			"itemName": "butter",
+			"quantity": "1",
+			"listName": "Grocery List"
 				
 		},
 		{
-			"name": "beer"
+			"itemName": "beer",
+			"quantity": "2",
+			"listName": "Grocery List"
 		}
 	]
 }

@@ -3,12 +3,15 @@
 	padding: 1em;
     clear: left;
     text-align: center;
+    background-image: url("/images/backgroundBlack.jpg");
+    background-color: #cccccc;
 }
 
 #listName{
 	font-weight: bold;
 	margin-left: auto;
     margin-right: auto;
+    color: white;
 }
 
 footer {

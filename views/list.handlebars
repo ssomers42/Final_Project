@@ -46,12 +46,13 @@
       onclick="toggleNewItemForm()">
         New Item
       </button>
+
       <button type="button" class="btn btn-danger btn-lg" onclick="toggleNewLinkForm()">
         Share
       </button>
       
       <button type="button" class="btn btn-danger btn-lg" style="float: right;" 
-      onclick="toggleEdit()">
+      onclick="toggleSettings()">
         Settings
       </button>
       
@@ -59,40 +60,52 @@
 
     <!-- entry part -->
     <div id="newItemDisplay" style="display: none">
-      <form id="newItemForm" action="">
-        Item Name:<br>
-        <input type="text" value="" id="targetInput">
+      <form id="newItemForm" role="form" method="get" action="/add">
+        <label for="itemName">Item Name:</label>
+        <input type="text" class="form-control" 
+        id="itemName" placeholder="Name" name="itemName">
         <br>
+        <label for="quantity">Quantity of Item:</label>
+        <input type="text" class="form-control" 
+        id="quantity" value="1" name="quantity">
         <br>
-        <input type="submit" value="Submit" class="btn btn-danger">
+        <input type="submit" value="Add Item" class="btn btn-danger">
       </form> 
     </div>
 
     <!-- share button link -->
     <div id="newLinkDisplay" style="display: none">
-        <form name="newLinkForm" id="newLinkForm" action="">
+        <form name="newLinkForm" role="form" id="newLinkForm" action="">
         Link of this form:<br>
-        <input type="text" id="link" value="">
+        <input type="text" class="form-control" 
+        id="link" placeholder="Name" name="link">
         <br>
         <br>
         <input type="submit" value="Copy to ClipBoard" class="btn btn-danger">
       </form> 
     </div>
 
-    <!-- list items -->
-    <hr id="listContainer">
-      <!-- example item 1-->
-      <div id="itemHeader">
-        <div class="item">
-        <!-- <h4 style="float: left;"></h4> -->
+    
+    <div class="jumbotron">
+      {{#each db}}
+      <div class="item">
+        <a href="#">
+        <h4 style="float: left; clear:left;">
+          {{itemName}}
+        </h4>
+        </a>
         <button id="remove" type="button" class="btn btn-danger" 
-        style="float: right;display: none" onclick="hideItemHeader()">
+        style="float: right;display: none" onclick="hideItem()">
         Remove
         </button>
-        </div>
+        <h4 style="float: right;padding-right: 1.8em">
+          {{quantity}}
+        </h4>
+        <br>
       </div>
-
-    </hr>
+      {{/each}}
+    </div>
+    
 
     <!-- Footer part -->
     <footer style="
@@ -124,82 +137,61 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript">
       
-      function hideItemHeader() {
-        $('#itemHeader').hide();
+      function hideItem() {
+        $('.item').hide();
       }
 
       function toggleNewItemForm() {
-        if($("#newItemDisplay").is(":visible")){$("#newItemDisplay").hide();}
-        else{$('#newItemDisplay').show();}
+        if($("#newItemDisplay").is(":visible")){$("#newItemDisplay").fadeOut();}
+        else{$('#newItemDisplay').fadeIn();}
         
       }
 
       function toggleNewLinkForm() {
-        var currentURL = document.URL;
-        
+        var currentURL = window.location.hostname+"/list/{{listName}}";
 
         if($('#newLinkDisplay').is(":visible"))
-          {
-            $('#newLinkDisplay').hide();
-          }
+        {
+          $('#newLinkDisplay').fadeOut();
+        }
         else
-          {
-            $('#newLinkDisplay').show();
-          }
+        {
+          $('#newLinkDisplay').fadeIn();
+        }
         document.newLinkForm.link.value = currentURL;
-        //document.getElementById("demo").innerHTML = currentURL;
+        
       }
       
-      function toggleEdit(){
-        if($("#remove").is(":visible")){$("#remove").hide();}
-        else{$("#remove").show();}
+      function toggleSettings(){
+        if($("#remove").is(":visible")){$("#remove").fadeOut();}
+        else{$("#remove").fadeIn();}
       }
 
       function toggleSuggestedItems(){
         alert("The milk has gone bad! please buy a new one before due day!");
         if($("#suggestedContainer").is(":visible"))
           {
-            $("#suggestedContainer").hide();
-            $(".suggestedItems").hide();
+            $("#suggestedContainer").fadeOut();
+            $(".suggestedItems").fadeOut();
           }
         else
           {
-            $("#suggestedContainer").show();
-            $(".suggestedItems").show();
+            $("#suggestedContainer").fadeIn();
+            $(".suggestedItems").fadeIn();
           }
 
       }
 
       $( document ).ready(function() {
-        // alert("page is ready");
-        localStorage.clear();
-        var pendingRender = localStorage.getItem("itemDB");
-        var dataPending = new Array();
-        $("#newItemForm").submit(function(e) {
-          e.preventDefault();
-          alert("The item has been added");
-          // $("#newItemDisplay").hide();
-          // $("#realContent").show();
-          if (dataPending = []){
-            dataPending = $("#targetInput").val().trim();
-            localStorage.setItem("itemDB", dataPending);
-          }
-          else {
-            dataPending=localStorage.getItem("itemDB");
-            dataPending.push($("#targetInput").val().trim());
-            localStorage.setItem("itemDB", [JSON.stringify(dataPending)]);
 
-          }
-          pendingRender=localStorage.getItem("itemDB");
-          $("#itemHeader").append("<h4>" + pendingRender + "</h4>");
-
-          
-
-        });
+        // $("#newItemForm").submit(function(e) {
+        //   e.preventDefault();
+        //   alert("The item has been added");
+        //   //app.get('/add', add.addItem);
+        // });
 
         $("#newLinkForm").submit(function(e) {
           e.preventDefault();
-          alert("The Link is copied!");
             /* Get the text field */
           var copyText = document.getElementById("link");
 
@@ -210,7 +202,7 @@
           document.execCommand("Copy");
 
           /* Alert the copied text */
-          //alert("Copied the text: " + copyText.value);
+          alert("Copied the text: " + copyText.value);
         });
       });
 
