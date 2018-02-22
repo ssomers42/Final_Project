@@ -24,7 +24,7 @@
   <body>
 		<!-- Header Part -->
     <div class="jumbotron" id="listTile">
-      <a href = '#' onclick="history.back();">
+      <a href = '/indexLogged'>
         <button type="button" class="btn btn-secondary" style="float: left;">
           Back
         </button>
@@ -63,7 +63,7 @@
       <form id="newItemForm" role="form" method="get" action="/add">
         <label for="itemName">Item Name:</label>
         <input type="text" class="form-control" 
-        id="itemName" placeholder="Name" name="itemName">
+        id="itemName" placeholder="Name" name="itemName" required>
         <br>
         <label for="quantity">Quantity of Item:</label>
         <input type="text" class="form-control" 
@@ -86,13 +86,12 @@
     </div>
 
     
-    <div class="jumbotron">
+    <div class="jumbotron" id="itemList">
       {{#each db}}
+      <br>
       <div class="item">
         <a href="#">
-        <h4 style="float: left; clear:left;">
-          {{itemName}}
-        </h4>
+        <h4>{{itemName}}</h4>
         </a>
         <button id="remove" type="button" class="btn btn-danger" 
         style="float: right;display: none" onclick="hideItem()">
@@ -101,17 +100,13 @@
         <h4 style="float: right;padding-right: 1.8em">
           {{quantity}}
         </h4>
-        <br>
       </div>
       {{/each}}
     </div>
     
 
     <!-- Footer part -->
-    <footer style="
-            position:absolute;
-            bottom:0%;
-            width:100%;">
+    <footer>
       <button type="button" class="btn btn-secondary" onclick="toggleSuggestedItems()">
         Suggested Items
       </button>

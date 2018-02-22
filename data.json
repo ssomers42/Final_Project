@@ -15,11 +15,11 @@
 	"names":[
 		{
 			"listName":"Grocery List",
-		 	"dueDate": "2/10/2018"
+		 	"dueDate": "2018-2-10"
 		},
 		{
 			"listName": "Hello",
-			"dueDate": "2/15/2018"
+			"dueDate": "2018-2-25"
 		}
 	]
 }
