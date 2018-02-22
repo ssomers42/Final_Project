@@ -55,3 +55,7 @@ h4 {
 #itemList {
     line-height: 10px;
 }
+
+#itemList > .item:hover{
+    background:#ddd;
+}

@@ -24,4 +24,4 @@ exports.viewList = function(req, res) { 
   console.log(pendingData);
   res.render('list', pendingData);
 
-};
+};    

@@ -13,6 +13,7 @@
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet" >
     <link href="/css/list.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
+    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -90,9 +91,7 @@
       {{#each db}}
       <br>
       <div class="item">
-        <a href="#">
-        <h4>{{itemName}}</h4>
-        </a>
+        <a href="#"><h4>{{itemName}}</h4></a>
         <button id="remove" type="button" class="btn btn-danger" 
         style="float: right;display: none" onclick="hideItem()">
         Remove
@@ -130,81 +129,9 @@
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript">
-      
-      function hideItem() {
-        $('.item').hide();
-      }
-
-      function toggleNewItemForm() {
-        if($("#newItemDisplay").is(":visible")){$("#newItemDisplay").fadeOut();}
-        else{$('#newItemDisplay').fadeIn();}
-        
-      }
-
-      function toggleNewLinkForm() {
-        var currentURL = window.location.hostname+"/list/{{listName}}";
-
-        if($('#newLinkDisplay').is(":visible"))
-        {
-          $('#newLinkDisplay').fadeOut();
-        }
-        else
-        {
-          $('#newLinkDisplay').fadeIn();
-        }
-        document.newLinkForm.link.value = currentURL;
-        
-      }
-      
-      function toggleSettings(){
-        if($("#remove").is(":visible")){$("#remove").fadeOut();}
-        else{$("#remove").fadeIn();}
-      }
-
-      function toggleSuggestedItems(){
-        alert("The milk has gone bad! please buy a new one before due day!");
-        if($("#suggestedContainer").is(":visible"))
-          {
-            $("#suggestedContainer").fadeOut();
-            $(".suggestedItems").fadeOut();
-          }
-        else
-          {
-            $("#suggestedContainer").fadeIn();
-            $(".suggestedItems").fadeIn();
-          }
-
-      }
-
-      $( document ).ready(function() {
-
-        // $("#newItemForm").submit(function(e) {
-        //   e.preventDefault();
-        //   alert("The item has been added");
-        //   //app.get('/add', add.addItem);
-        // });
-
-        $("#newLinkForm").submit(function(e) {
-          e.preventDefault();
-            /* Get the text field */
-          var copyText = document.getElementById("link");
-
-          /* Select the text field */
-          copyText.select();
-
-          /* Copy the text inside the text field */
-          document.execCommand("Copy");
-
-          /* Alert the copied text */
-          alert("Copied the text: " + copyText.value);
-        });
-      });
-
-
-    </script>
-    
+ 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/listFunctions.js"></script>
   </body>
 </html>
