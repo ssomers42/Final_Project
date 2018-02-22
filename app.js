@@ -55,6 +55,7 @@ app.get('/edit', edit.view);
 app.get('/notes', notes.view);
 app.get('/indexLogged', index.logged);
 app.get('/add', add.addItem);
+app.get('/list', index.addList);
 // Example route
 // app.get('/users', user.list);
 
