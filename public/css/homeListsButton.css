@@ -1,4 +1,4 @@
- .listButton a{
+ .listButton  a, button{
  	font-size: 25px;
 	/*width: 40%;*/
 	display: block;
