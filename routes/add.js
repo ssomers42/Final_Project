@@ -4,7 +4,8 @@ exports.addItem = function(req, res) { 
 
 	console.log(req.query.itemName);
 	console.log(req.query.quantity);
-	var newItem = {"itemName": req.query.itemName, "quantity": req.query.quantity, listName: 'Grocery List'};
+	console.log(req.query.listName);
+	var newItem = {"itemName": req.query.itemName, "quantity": req.query.quantity, "listName": "Grocery List"};
 	data.item.push(newItem);
 
 	var name = "Grocery List"
