@@ -14,8 +14,8 @@ function statusChangeCallback(response) {
   if (response.status === 'connected') {
     // Logged into your app and Facebook.
         console.log('Successfully logged in with Facebook');
-         window.location = "/indexLogged";
-         $('#loginImage').attr("src",response.picture.data.url);
+         //window.location = "/indexLogged";
+         //$('#loginImage').attr("src",response.picture.data.url);
          FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);
   }
 }
