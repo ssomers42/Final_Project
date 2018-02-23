@@ -9,20 +9,6 @@ else{$('#newItemDisplay').fadeIn();}
 
 }
 
-function toggleNewLinkForm() {
-var currentURL = window.location.hostname+"/list/{{listName}}";
-
-if($('#newLinkDisplay').is(":visible"))
-{
-  $('#newLinkDisplay').fadeOut();
-}
-else
-{
-  $('#newLinkDisplay').fadeIn();
-}
-document.newLinkForm.link.value = currentURL;
-
-}
 
 function toggleSettings(){
 if($("#remove").is(":visible")){$("#remove").fadeOut();}

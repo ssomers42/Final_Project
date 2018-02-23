@@ -126,12 +126,28 @@
 
     </footer>
 
+    <script type="text/javascript">
+      function toggleNewLinkForm() {
+        var currentURL = window.location.hostname+"/list/{{listName}}";
 
+        if($('#newLinkDisplay').is(":visible"))
+        {
+          $('#newLinkDisplay').fadeOut();
+        }
+        else
+        {
+          $('#newLinkDisplay').fadeIn();
+        }
+        document.newLinkForm.link.value = currentURL;
+
+      }
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
  
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/listFunctions.js"></script>
+
   </body>
 </html>
