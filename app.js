@@ -16,7 +16,7 @@ var list = require('./routes/list');
 var login = require('./routes/login');
 var help = require('./routes/help');
 var edit = require('./routes/edit');
-var notes = require('./routes/notes');
+// var notes = require('./routes/notes');
 
 var add = require('./routes/add');
 // Example route
@@ -52,7 +52,7 @@ app.get('/list/:name', list.viewList);
 app.get('/login', login.view);
 app.get('/help', help.view);
 app.get('/edit', edit.view);
-app.get('/notes', notes.view);
+// app.get('/notes', notes.view);
 app.get('/indexLogged', index.logged);
 app.get('/add', add.addItem);
 app.get('/list', index.addList);
