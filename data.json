@@ -3,20 +3,18 @@
 		{
 			"itemName": "butter",
 			"quantity": "1",
-			"listName": "Example List"
+			"listName": "Example List",
+			"dueDate": "2018-2-25"
 				
 		},
 		{
 			"itemName": "beer",
 			"quantity": "2",
-			"listName": "Example List"
+			"listName": "Example List",
+			"dueDate": "2018-2-25"
 		}
 	],
 	"names":[
-		{
-			"listName":"Grocery List",
-		 	"dueDate": "2018-2-10"
-		},
 		{
 			"listName": "Example List",
 			"dueDate": "2018-2-25"

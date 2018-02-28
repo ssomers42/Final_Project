@@ -2,10 +2,12 @@ var data = require('../data.json');
 
 exports.viewList = function(req, res) { 
   // controller code goes here 
-  var name = req.params.name; 
+  var pendingName = req.params.name; 
+  name = pendingName.split("=")[0]
+  dueDate = pendingName.split("=")[1]
   console.log("The List name is: " + name);
 
-  var pendingData = {'listName': name, 'db': []};
+  var pendingData = {'listName': name, 'dueDate':dueDate, 'db': []};
   
   console.log("logging data " + data.item.length)
   // var item;

@@ -5,13 +5,16 @@ exports.addItem = function(req, res) { 
 	console.log(req.query.itemName);
 	console.log(req.query.quantity);
 	console.log(req.query.listName);
-	var newItem = {"itemName": req.query.itemName, "quantity": req.query.quantity, "listName": "Grocery List"};
+	console.log(req.query.dueDate);
+	var newItem = {"itemName": req.query.itemName, "quantity": req.query.quantity, 
+	"listName": req.query.currentListName, "dueDate": req.query.currentDueDate};
 	data.item.push(newItem);
 
-	var name = "Grocery List"
+	var name = req.query.currentListName
+	var due = req.query.currentDueDate
 	// res.render('list', data);
 
-	var pendingData = {'listName': name, 'db': []};
+	var pendingData = {'listName': name, 'dueDate':due, 'db': []};
   
 	console.log("logging data " + data.item.length)
 	// var item;

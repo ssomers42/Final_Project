@@ -39,6 +39,11 @@
         ?
         </button>
       </a>
+
+      <br>
+      <span id="dueDate">Due: {{dueDate}}</span>
+
+      
     </div>
 
     <!-- function Part -->
@@ -70,6 +75,9 @@
         <input type="text" class="form-control" 
         id="quantity" value="1" name="quantity">
         <br>
+        <input type="hidden" name="currentListName" value="{{listName}}">
+        <input type="hidden" name="currentDueDate" value="{{dueDate}}">      
+
         <input type="submit" value="Add Item" class="btn btn-danger">
       </form> 
     </div>

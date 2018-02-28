@@ -64,7 +64,7 @@
     <div class="listButton" style="text-align: center;">
         <a href=# List" class="listButton btn btn-danger" data-toggle="modal" data-target="#createList"> +Create New </a>
         {{#each names}}
-        <a href="/list/{{listName}}" class="listButton btn btn-danger"> {{listName}} <br> Due: {{dueDate}} </a>
+        <a href="/list/{{listName}}={{dueDate}}" class="listButton btn btn-danger"> {{listName}} <br> Due: {{dueDate}} </a>
         {{/each}}
     </div>
     <div id = "createList" class="modal fade" role="dialog">
@@ -83,7 +83,9 @@
               <div class="form-group">
                 <label for="dueDate"> Due Date </label>
                 <input type="date" name="due" id="dueDate" required>
-              </div>   
+              </div>
+
+
               <input type="submit">
             </form>
           </div>
