@@ -32,5 +32,5 @@ exports.addItem = function(req, res) { 
 	}
 		
 	console.log(pendingData);
-	res.render('list', pendingData);
+	res.render('list_A', pendingData);
  };
