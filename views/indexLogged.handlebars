@@ -43,7 +43,7 @@
         ?
         </button>
       </a>
-      <a href="/index_B" >
+      <a href="/" >
         <button type="button" class="btn btn-secondary" style="float:  left;
         margin-left: auto;margin-top: auto;">
       	 Logout
@@ -64,7 +64,7 @@
     <div class="listButton" style="text-align: center;">
         <a href=# List" class="listButton btn btn-danger" data-toggle="modal" data-target="#createList"> +Create New </a>
         {{#each names}}
-        <a href="/list_B/{{listName}}={{dueDate}}" class="listButton btn btn-danger"> {{listName}} <br> Due: {{dueDate}} </a>
+        <a href="/list/{{listName}}={{dueDate}}" class="listButton btn btn-danger"> {{listName}} <br> Due: {{dueDate}} </a>
         {{/each}}
     </div>
     <div id = "createList" class="modal fade" role="dialog">
@@ -75,7 +75,7 @@
             <h4 class="modal-title"> Create New List </h4>
           </div>
           <div class="modal-body">
-            <form id="newList" role="form" method="get" action="/list_B">
+            <form id="newList" role="form" method="get" action="/list">
               <div class="form-group">
                 <label for="listInput"> List Name </label>
                 <input type="text" class="form-control" name="listInput" required>
