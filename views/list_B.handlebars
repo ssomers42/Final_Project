@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>List</title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet" >
+    <link href="/css/listB.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+		<!-- Header Part -->
+    <div class="jumbotron" id="listTile">
+      <a href = '/indexLogged_B'>
+        <button type="button" class="btn btn-secondary" style="float: left;">
+          Back
+        </button>
+      </a>
+
+      <!-- List Name shown in the middle-->
+      <span id="listName">{{listName}}</span>
+
+      <a href='/help'>
+        <button type="button" class="btn btn-secondary" style="float: right;">
+        ?
+        </button>
+      </a>
+
+      <br>
+      <span id="dueDate">Due: {{dueDate}}</span>
+
+      
+    </div>
+
+    <!-- function Part -->
+    <ul class="nav">
+      <button type="button" class="btn btn-danger btn-lg" style="float: left;" 
+      onclick="toggleNewItemForm()">
+        New Item
+      </button>
+
+      <button type="button" class="btn btn-danger btn-lg" onclick="toggleNewLinkForm()">
+        Share
+      </button>
+      
+      <button type="button" class="btn btn-danger btn-lg" style="float: right;" 
+      onclick="toggleSettings()">
+        Settings
+      </button>
+      
+    </ul>
+
+    <!-- entry part -->
+    <div id="newItemDisplay" style="display: none">
+      <form id="newItemForm" role="form" method="get" action="/add_B">
+        <label for="itemName">Item Name:</label>
+        <input type="text" class="form-control" 
+        id="itemName" placeholder="Name" name="itemName" required>
+        <br>
+        <label for="quantity">Quantity of Item:</label>
+        <input type="text" class="form-control" 
+        id="quantity" value="1" name="quantity">
+        <br>
+        <input type="hidden" name="currentListName" value="{{listName}}">
+        <input type="hidden" name="currentDueDate" value="{{dueDate}}">      
+
+        <input type="submit" value="Add Item" class="btn btn-danger">
+      </form> 
+    </div>
+
+    <!-- share button link -->
+    <div id="newLinkDisplay" style="display: none">
+        <form name="newLinkForm" role="form" id="newLinkForm" action="">
+        Link of this form:<br>
+        <input type="text" class="form-control" 
+        id="link" placeholder="Name" name="link">
+        <br>
+        <br>
+        <input type="submit" value="Copy to ClipBoard" class="btn btn-danger">
+      </form> 
+    </div>
+
+    
+    <div class="jumbotron" id="itemList">
+      {{#each db}}
+      <br>
+      <div class="item">
+        <a href="#" style="color:black"><h4>{{itemName}}</h4></a>
+        <button id="remove" type="button" class="btn btn-danger" 
+        style="float: right;display: none" onclick="hideItem()">
+        Remove
+        </button>
+        <h4 style="float: right;padding-right: 1.8em">
+          {{quantity}}
+        </h4>
+      </div>
+      {{/each}}
+    </div>
+    
+
+    <!-- Footer part -->
+    <footer>
+      <!--button type="button" class="btn btn-secondary" onclick="toggleSuggestedItems()">
+        Suggested Items
+      </button>
+
+
+      <hr id="suggestedContainer" style="display: none">
+      <div class="suggestedItems" style="display: none">
+         
+         <h4 style="float: left"> Milk </h4>
+
+         <button id="remove" type="button" class="btn btn-danger" 
+        style="float: right;display: none" onclick="hideRealContent()">
+        Remove
+        </button>
+        
+      </div>
+    </hr-->
+
+    </footer>
+
+    <script type="text/javascript">
+      function toggleNewLinkForm() {
+        var currentURL = window.location.hostname+"/list/{{listName}}={{dueDate}}";
+
+        if($('#newLinkDisplay').is(":visible"))
+        {
+          $('#newLinkDisplay').fadeOut();
+        }
+        else
+        {
+          $('#newLinkDisplay').fadeIn();
+        }
+        document.newLinkForm.link.value = currentURL;
+
+      }
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ 
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/listFunctions.js"></script>
+
+  </body>
+</html>

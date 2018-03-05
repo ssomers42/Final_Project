@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>When2Buy</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    body 
+    {
+      background-image: url("/images/backgroundBlack.jpg");
+      background-color: #cccccc;
+    }
+
+    .jumbotron{
+      background-image: url("/images/backgroundBlack.jpg");
+      background-color: #cccccc;
+    }
+    </style>
+
+  </head>
+  <body>
+
+  	<div class="jumbotron" id="loginTile" >
+  		<!-- login, edit, and ? buttons -->
+      <a href='/help'>
+      <button type="button" class="btn btn-secondary" style="float: right;">
+        ?
+      </button>
+      </a>
+      <a href = '#' onclick="history.back();">
+        <button type="button" class="btn btn-secondary" style="float: left;">
+        	Back
+        </button>
+      </a>
+        <h1 style="text-align: center; color: white;">Login</h1>
+    </div>
+    <div style="text-align: center">
+      <img id="loginImage" src="/images/login.png" alt="avatar">
+        <div id="loginForm">
+        <form style="text-align: center; color: white;"> 
+          Email: <br>
+          <input class="loginBoxes" type="text" name="email" placeholder="user@example.com" required> 
+          <br>
+          Password: <br>
+          <input class="loginBoxes" type="password" name="password" placeholder ="********" required> 
+          <br>
+          <!-- fake button until auth system works-->
+          <!--input type="submit" value="Submit" color="class="btn"-->
+          <a href="/indexLogged_B" class="btn btn-default"> Submit </a>
+          <p class="facebookLogin" style="margin-top: 1em;">Or login through Facebook</p>
+          <br>
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+          </fb:login-button>
+      </form>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    {{> facebook}}
+    <script src="/js/facebook.js"></script>
+  </div>
+  </body>
+</html>

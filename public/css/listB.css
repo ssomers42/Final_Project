@@ -1,0 +1,69 @@
+#listTile{
+    flex:1;
+	padding: 1em;
+    clear: left;
+    text-align: center;
+    background-image: url("/images/backgroundBlack.jpg");
+    background-color: #cccccc;
+}
+
+#listName{
+	font-weight: bold;
+	margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+#dueDate{
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+html{ 
+position: relative;
+min-height: 100%;
+ }
+
+footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+    position: absolute;
+    /*min-height: 10%;*/
+    min-height: 5%;
+    width:100%;
+    bottom:0%;
+}
+
+ul {
+    padding: 1em;
+    clear: left;
+    text-align: center;
+}
+
+#item{
+    padding: 1em;
+    clear: left;
+    text-align: center;
+}
+
+.item {
+    display:block;
+    padding: .5em 0 .5em .5em;
+    outline: 0.01em solid black;
+}
+
+h4 {
+    display:inline-block;
+}
+
+#itemList {
+    line-height: 10px;
+}
+
+#itemList > .item:hover{
+    background:#ddd;
+}
