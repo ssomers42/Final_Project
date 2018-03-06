@@ -52,9 +52,18 @@ $( document ).ready(function() {
     /* Alert the copied text */
     alert("Copied the text: " + copyText.value);
   });
-
-  $("#itemList .item").click(function(e){
-    e.preventDefault();
-    $(this).remove();
-  });
+var list = document.querySelectorAll('.item');
+for (var i=0; i<list.length; i++) {
+  list[i].addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'DIV') {
+      ev.target.classList.toggle('checked');
+      $(this).find("#remove").toggle();
+    }
+  }, false);
+//   $("#itemList .item").click(function(e){
+//     e.preventDefault();
+//     $(this).remove();
+//   });
+};
 });
+

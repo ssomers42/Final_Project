@@ -66,3 +66,13 @@ h4 {
 #itemList > .item:hover{
     background:#ddd;
 }
+
+#itemList .item.checked {
+    background: #888;
+    text-decoration: line-through;
+    color: #fff;
+}
+
+.item.checked a h4 {
+    text-decoration: line-through;
+}
