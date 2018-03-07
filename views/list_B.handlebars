@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115177092-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-115177092-1');
+    </script>
 
     <title>List</title>
     
@@ -48,16 +57,16 @@
 
     <!-- function Part -->
     <ul class="nav">
-      <button type="button" class="btn btn-danger btn-lg" style="float: left;" 
+      <button type="button" class="btn btn-danger btn-lg test" style="float: left;" 
       onclick="toggleNewItemForm()">
         New Item
       </button>
 
-      <button type="button" class="btn btn-danger btn-lg" onclick="toggleNewLinkForm()">
+      <button type="button" class="btn btn-danger btn-lg test" onclick="toggleNewLinkForm()">
         Share
       </button>
       
-      <button type="button" class="btn btn-danger btn-lg" style="float: right;" 
+      <button type="button" class="btn btn-danger btn-lg test" style="float: right;" 
       onclick="toggleSettings()">
         Settings
       </button>
